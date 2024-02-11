@@ -35,10 +35,17 @@ indexRouter.get('/', async function (req, res) {
             presence_penalty: 0,
         });
 
-        res.status(200).send(response.choices[0].message.content)
+        res.status(200).json({
+            status: "success",
+            message: "Love poem generated successfully",
+            data: response.choices[0].message.content
+        })
     } catch (err) {
         const message = err instanceof Error ? err.message : "error occurred";
-        res.status(400).json({ message: message, data: err });
+        res.status(400).json({
+            status: "error",
+            message: message, data: err
+        });
     }
 })
 
