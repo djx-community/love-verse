@@ -31,7 +31,7 @@ const CarouselComponent: React.FC<{ poemName:string, poem: string }> = ({ poemNa
         <div>
           <h1>
             Make Your
-            <span className="text-danger"> Favour</span>
+            <span className="text-danger"> Flavour</span>
           </h1>
           {/* Color boxes for story card themes */}
           <div style={{ display: "flex" }} className="">
