@@ -3,6 +3,7 @@ import React from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import CarouselComponent from "../components/carousel/Carousel"; // Importing the CarouselComponent
 import { Services } from "../services/Services"; // Importing the Services
+import { useSplashContext } from "../utils/context/SplashScreenContext"; // Importing the context hook
 
 // PagePreview functional component declaration
 const PagePreview: React.FC = () => {
@@ -11,6 +12,7 @@ const PagePreview: React.FC = () => {
   const yourName = searchParams.get("yourName"); // Get 'yourName' parameter from URL
   const valentineName = searchParams.get("valentineName"); // Get 'valentineName' parameter from URL
   const [poem, setPoem] = React.useState(""); // State for storing the generated poem
+  const { splashScreen, setSplashScreen } = useSplashContext(); // Access the splash screen context
 
   React.useEffect(() => {
     // Check if 'yourName' or 'valentineName' parameters are missing
@@ -18,6 +20,11 @@ const PagePreview: React.FC = () => {
       // Redirect the user to a different route if required parameters are missing
       navigate("/404", { replace: true });
     } else {
+      // Display splash screen while poem is being generated
+      if (!splashScreen.open) {
+        setSplashScreen({ open: true });
+      }
+      
       // Call the generatePoem function from Services to fetch the poem
       if(yourName.toString().length > 15 || valentineName.toString().length > 15) {
         alert('Name should be less than 15 characters');
@@ -36,8 +43,15 @@ const PagePreview: React.FC = () => {
       // Set the poem state with a sample poem
       // setPoem("I love you more than words can express. You mean everything to me. I hope you have a wonderful day.");
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [yourName, valentineName]); // Dependency array for the useEffect hook
+
+  React.useEffect(() => {
+    // Hide splash screen once poem is generated
+    if (poem !== "") {
+      setSplashScreen({ open: false });
+    }
+  }, [poem, setSplashScreen]);
 
   // Rendering the component
   return (

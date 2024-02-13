@@ -13,7 +13,7 @@ const FormComponent: React.FC = () => {
       <div className="d-flex gap-md-1 flex-md-row flex-column align-items-center mt-2">
         {" "}
         {/* Div for input fields */}
-        <div>
+        <div className="w-100">
           {" "}
           {/* Div for "Your Name" input */}
           <input
@@ -40,7 +40,7 @@ const FormComponent: React.FC = () => {
           </div>
         </div>
         <span className="text-danger fs-5 lh-0">&</span> {/* "&" symbol */}
-        <div>
+        <div className="w-100">
           {" "}
           {/* Div for "Valentine's Name" input */}
           <input
