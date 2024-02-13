@@ -21,7 +21,7 @@ indexRouter.get('/', async function (req, res) {
             messages: [
                 {
                     "role": "system",
-                    "content": "I am going to assign you a task. From now on wards i will give you the names of a couple. You need to generate a small love poem in 6 lines divided into 3 stanza which do need to have a small meaning related to their name. You can try to process the meaning of the name from any langauge. and add emoji at the end of every stanza's"
+                    "content": "Dear AI, I have a task for you. I'll provide you with the names of a couple. Your job is to craft a concise love poem in 6 lines, split into 3 stanzas, ensuring each line doesn't exceed 25 characters (this is crucial). Also ensure that after each stanza there should be two new line characters in valid html .Failure to comply will result in consequences. The poem should carry a subtle meaning related to their names, drawing inspiration from any language. It would be better if you can add some rhymes to the poem. Please include an emoji at the end of each stanza. Also, kindly replace all the new lines (that is \n) with html new line (which is <br>) before delivering the response."
                 },
                 {
                     "role": "user",
