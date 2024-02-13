@@ -46,9 +46,9 @@ const StoryImageCard: React.FC<{ url: string; poem: string }> = ({
           textAlign: "center",
         }}
       >
-        <div>
+        {/* <div>
           <img src={url} style={{width: 100, height: 100}}/>
-        </div>
+        </div> */}
         <h1>Me&You</h1>
         <div
           dangerouslySetInnerHTML={{

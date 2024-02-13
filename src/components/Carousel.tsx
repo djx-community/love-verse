@@ -217,6 +217,7 @@ const CarouselComponent: React.FC<{ poem: string }> = ({ poem }) => {
 export default CarouselComponent;
 
 const imagesResources = [
+  "https://images.unsplash.com/photo-1615966650071-855b15f29ad1?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y291cGxlJTIwaW4lMjBsb3ZlfGVufDB8fDB8fHww",
   "https://e0.pxfuel.com/wallpapers/370/286/desktop-wallpaper-couple-love-heart-sunset-graphy-ss-love-couple.jpg",
   "https://e1.pxfuel.com/desktop-wallpaper/614/931/desktop-wallpaper-love-iove.jpg",
   "https://img.freepik.com/free-photo/two-red-hearts-against-red-background_1150-6930.jpg",
