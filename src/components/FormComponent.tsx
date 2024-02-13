@@ -1,7 +1,9 @@
 import React, { ChangeEvent, FormEvent } from "react";
 import QuillPenIcon from "../assets/quill-pen.png";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 
 const FormComponent: React.FC = () => {
+  const navigate: NavigateFunction = useNavigate();
   const [formState, setFormState] = React.useState({
     yourName: "",
     valentineName: "",
@@ -14,6 +16,11 @@ const FormComponent: React.FC = () => {
   const handelSubmit = (event: FormEvent) => {
     event.preventDefault();
     // console.log(formState);
+    if (formState.valentineName && formState.yourName) {
+      navigate(
+        `/preview?yourName=${formState.yourName}&valentineName=${formState.valentineName}`
+      );
+    }
   };
   return (
     <form className="gap-2 d-flex flex-column w-100" onSubmit={handelSubmit}>
