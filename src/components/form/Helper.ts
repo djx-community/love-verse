@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
+import { useSplashContext } from "../../utils/context/SplashScreenContext";
 
 // Interface for form fields
 export interface UseFormInterFace {
@@ -19,6 +20,8 @@ export const useForm = () => {
         yourName: "",
         valentineName: "",
     });
+
+    const { setSplashScreen } = useSplashContext()
 
     // Function to handle input change
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -48,6 +51,8 @@ export const useForm = () => {
 
         // Navigate to preview page if form is valid
         if (formState.valentineName && formState.yourName) {
+            setSplashScreen({ open: true });
+
             navigate(`/preview?yourName=${formState.yourName}&valentineName=${formState.valentineName}`);
         }
     };

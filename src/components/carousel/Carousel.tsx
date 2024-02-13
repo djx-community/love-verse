@@ -62,7 +62,7 @@ const CarouselComponent: React.FC<{ poem: string }> = ({ poem }) => {
                       }}
                     ></span>
                     {/* Theme name */}
-                    <p className="theme-name">{theme.theme}</p>
+                    <p className="theme-name mt-2">{theme.theme}</p>
                   </div>
                 );
               })}
