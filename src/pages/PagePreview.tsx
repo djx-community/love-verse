@@ -35,7 +35,7 @@ const PagePreview: React.FC = () => {
 
   // Rendering the component
   return (
-    <div className="row">
+    <div className="row d-flex h-100 align-items-center justify-content-center">
         <CarouselComponent poem={poem} /> {/* Render the CarouselComponent with the generated poem */}
     </div>
   );
