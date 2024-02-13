@@ -1,0 +1,54 @@
+/* CSS */
+.form-control:focus {
+    border-color: transparent !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25) !important;
+
+}
+
+/* .story-card {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgb(255, 255, 255);
+    scale: 0.8;
+    Reflect and perspective
+    -webkit-box-reflect: below 2px linear-gradient(transparent, transparent, #0004);
+    transform-origin: center;
+    transform: perspective(1000px) rotateY(25deg);
+    transition: 0.5s;
+} */
+
+/* .story-card:hover {}
+*/
+
+input[type=radio] {
+    display: none;
+}
+
+.color-box-container {
+    width: 300px;
+}
+
+.color-box-container>span {
+    width: 40px;
+    height: 40px;
+    padding: 0.3rem;
+    padding-inline: 1rem;
+    border-radius: 30px;
+    border: 5px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 1px 1px 1px 1px rgb(232, 231, 231);
+    margin: 3px;
+    scale: 0.5;
+}
+
+.color-box {
+    border: 5px solid red;
+}
+
+.color-box:hover {
+    cursor: pointer;
+    border: 5px solid red;
+}
+
