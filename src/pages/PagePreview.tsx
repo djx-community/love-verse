@@ -19,6 +19,9 @@ const PagePreview: React.FC = () => {
     if (!yourName || !valentineName) {
       // Redirect the user to a different route if required parameters are missing
       navigate("/404", { replace: true });
+    } else if(yourName.toString().length > 15 || valentineName.toString().length > 15) {
+      alert('Name should be less than 15 characters');
+      return navigate("/", { replace: true });
     } else {
       // Display splash screen while poem is being generated
       if (!splashScreen.open) {
@@ -26,10 +29,6 @@ const PagePreview: React.FC = () => {
       }
       
       // Call the generatePoem function from Services to fetch the poem
-      if(yourName.toString().length > 15 || valentineName.toString().length > 15) {
-        alert('Name should be less than 15 characters');
-        return navigate("/", { replace: true });
-      }
       Services.generatePoem({ valentineName, yourName })
         .then((response) => {
           if (response.status === 200) {
