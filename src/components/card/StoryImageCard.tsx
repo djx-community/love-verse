@@ -29,6 +29,9 @@ const StoryImageCard: React.FC<{
     }
   };
 
+  const mixIn = theme.mix // Convert mix array to string
+    .map((color) => `rgba(${color}, 0.6)`)
+    .join(",");
   // Rendering the component
   return (
     <div style={{ position: "absolute" }}>
@@ -37,22 +40,27 @@ const StoryImageCard: React.FC<{
         ref={containerRef}
         className="story-card"
         style={{
-          backgroundImage: `url(${theme.url})`, // Background image from the theme
-          color: "white", // Text color
+          backgroundImage: `${
+            theme.mix.length > 1
+              ? `linear-gradient(180deg, ${mixIn})`
+              : `linear-gradient(180deg, ${mixIn}, rgba(1, 1, 1, 0.5))`
+          },url(${theme.url})`, // Background image from the theme
           paddingInline: 20, // Horizontal padding
           display: "flex", // Flex display
           alignItems: "center", // Center align items
           justifyContent: "center", // Center justify content
           fontSize: "1.1rem", // Font size
-          fontFamily: "-moz-initial", // Font family
+          color: `${theme.fontColor ? theme.fontColor : "White"}`, // Text color
+          fontFamily: `${theme.font ? theme.font : "-moz-initial"}`, // Font family
           flexDirection: "column", // Column flex direction
-          textAlign: "center", // Center text alignment
+          // textAlign: "center", // Center text alignment
         }}
       >
         {/* Title */}
-        <h1>Me&You</h1>
+        <h1 style={{ zIndex: 2 }}>Me&You</h1>
         {/* Poem content */}
         <div
+          style={{ zIndex: 2 }}
           dangerouslySetInnerHTML={{
             __html: poem, // Set poem content as HTML
           }}
@@ -63,11 +71,13 @@ const StoryImageCard: React.FC<{
         {/* Download button */}
         <button
           type="submit"
+          style={{ zIndex: 2 }}
           className="btn btn-danger rounded-pill align-items-center justify-content-center"
           onClick={handleDownload} // Call handleDownload function on click
           disabled={!active} // Disable button if not active
         >
-          <img src={download} width="18px" height="18px" /> {/* Download icon */}
+          <img src={download} width="18px" height="18px" />{" "}
+          {/* Download icon */}
         </button>
         {/* Copy button (commented out) */}
         {/* <button
