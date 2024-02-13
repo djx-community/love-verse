@@ -72,16 +72,16 @@ export const storyCardThemes: StoryCardThemeInterface[] = [
     fontColor: "",
   },
   {
-    theme: "Noir",
-    mix: ["64, 62, 62", "1,1,1"], //red,black
-    url: lightBlack,
+    theme: "Romance",
+    mix: ["252, 252, 252"], //red,black
+    url: whiteRed,
     font: "",
     fontColor: "",
   },
   {
-    theme: "Romance",
-    mix: ["252, 252, 252"], //red,black
-    url: whiteRed,
+    theme: "Noir",
+    mix: ["64, 62, 62", "1,1,1"], //red,black
+    url: lightBlack,
     font: "",
     fontColor: "",
   },
