@@ -1,17 +1,21 @@
-.story-card{
-    border-radius: 15px;
-    box-shadow: 1px 1px 10px 3px rgba(0,0,0,0.07);
-    z-index: 10;
-    width: 300px;
-    height: 500px;
-    background-size: cover;
-    background-position: center center center;
-    background-repeat: no-repeat;
+/* Styles for the story card */
+.story-card {
+    border-radius: 15px; /* Rounded corners for the card */
+    box-shadow: 1px 1px 10px 3px rgba(0,0,0,0.07); /* Shadow effect for the card */
+    z-index: 10; /* Stack order of the card */
+    width: 300px; /* Width of the card */
+    height: 500px; /* Height of the card */
+    background-size: cover; /* Ensure background image covers the entire card */
+    background-position: center center center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
 }
-.cardAction{
-    width: 24px;
-    height: 24px;
-    position: fixed;
-    z-index: 10;
-    transform: translate(240px,-90px);
+
+/* Styles for the card action button */
+.cardAction {
+    width: 24px; /* Width of the button */
+    height: 24px; /* Height of the button */
+    position: fixed; /* Fixed positioning */
+    z-index: 10; /* Stack order of the button */
+    transform: translate(240px,-50px); /* Positioning of the button */
+    /* transform: translate(240px,-90px); */ /* Download & copy position */
 }

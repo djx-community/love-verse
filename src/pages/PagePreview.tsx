@@ -1,107 +1,44 @@
-// PagePreview.tsx
+// Importing necessary dependencies and assets
 import React from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
-// import logo from "../assets/logo.png";
-import download from "../assets/download.svg";
-import copy from "../assets/copy.svg";
-import CarouselComponent from "../components/Carousel";
-// import logoAndBrand from "../assets/main-logo.png";
-import { Services } from "../services/Services";
+import CarouselComponent from "../components/carousel/Carousel"; // Importing the CarouselComponent
+import { Services } from "../services/Services"; // Importing the Services
 
+// PagePreview functional component declaration
 const PagePreview: React.FC = () => {
-  const navigate: NavigateFunction = useNavigate();
-  const searchParams = new URLSearchParams(location.search);
-  const yourName = searchParams.get("yourName");
-  const valentineName = searchParams.get("valentineName");
-  const [poem, setPoem] = React.useState("");
-  const [backgroundColor, setBackgroundColor] = React.useState("");
+  const navigate: NavigateFunction = useNavigate(); // Initialize the navigate function from react-router-dom
+  const searchParams = new URLSearchParams(location.search); // Get URL search parameters
+  const yourName = searchParams.get("yourName"); // Get 'yourName' parameter from URL
+  const valentineName = searchParams.get("valentineName"); // Get 'valentineName' parameter from URL
+  const [poem, setPoem] = React.useState(""); // State for storing the generated poem
 
   React.useEffect(() => {
+    // Check if 'yourName' or 'valentineName' parameters are missing
     if (!yourName || !valentineName) {
       // Redirect the user to a different route if required parameters are missing
       navigate("/404", { replace: true });
     } else {
+      // Call the generatePoem function from Services to fetch the poem
       Services.generatePoem({ valentineName, yourName })
         .then((response) => {
           if (response.status === 200) {
+            // If response is successful, set the poem state with the fetched data
             setPoem(response.data.data);
           }
         })
         .catch((error) => {
-          console.error(error);
+          console.error(error); // Log any errors that occur during the fetch request
         });
     }
-  }, [yourName, valentineName]);
-  // const [index, setIndex] = React.useState(0);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [yourName, valentineName]); // Dependency array for the useEffect hook
 
-
+  // Rendering the component
   return (
-    <div className="row h-100">
-      <div className="col d-flex align-items-center">
-        <CarouselComponent poem={poem}/>
-      </div>
-      <div className="col d-flex gap-1 align-items-center flex-column justify-content-center">
-        <div>
-          <h1>
-            Make Your
-            <span className="text-danger"> Favour</span>
-          </h1>
-          <div>
-            <label htmlFor="color-pallet">Choose Your Theme</label>
-            <div id="color-pallet" className="color-box-container pt-3 ">
-              {colors.map((color) => {
-                return (
-                  <span
-                    key={color}
-                    className={"color-box"}
-                    style={{
-                      background: `rgb(${color})`,
-                      borderColor: color === backgroundColor ? "red" : "white",
-                    }}
-                    onClick={() => setBackgroundColor(color)}
-                  ></span>
-                );
-              })}
-            </div>
-          </div>
-          <div className="d-flex gap-2 mt-3">
-            <button
-              type="submit"
-              className="btn btn-danger mt-3 rounded-pill d-flex gap-2 align-items-center justify-content-center px-3"
-            >
-              <img src={download} width="18px" height="18px" />
-              Download
-            </button>
-            <button
-              type="submit"
-              className="btn btn-light border mt-3 rounded-pill d-flex gap-2 align-items-center justify-content-center px-3"
-            >
-              <img src={copy} width="18px" height="18px" />
-              Copy link
-            </button>
-          </div>
-        </div>
-      </div>
+    <div className="row">
+        <CarouselComponent poem={poem} /> {/* Render the CarouselComponent with the generated poem */}
     </div>
   );
 };
 
-export default PagePreview;
-
-const colors = [
-  "1,1,1", // black
-  "255, 193, 7", // Gold
-  "255, 99, 71", // Tomato
-  "255, 215, 0", // Gold (variant)
-  "255, 69, 0", // Red-Orange
-  "255, 165, 0", // Orange
-  "155, 175, 0", // Orange
-];
-
-// const images = [
-//   "https://images.unsplash.com/photo-1546975490-e8b92a360b24",
-//   "https://images.unsplash.com/photo-1568572933382-74d440642117",
-//   "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
-//   "https://images.unsplash.com/photo-1548199973-03cce0bbc87b",
-//   "https://images.unsplash.com/photo-1567784177277-4f74e28914de",
-// ];
+export default PagePreview; // Export the PagePreview component
