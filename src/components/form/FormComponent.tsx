@@ -29,6 +29,7 @@ const FormComponent: React.FC = () => {
             name="yourName"
             value={formState.yourName}
             onChange={handleChange}
+            autoComplete="off" // disable autocomplete
           />
           <div
             id="validationServerYourNameFeedback"
@@ -53,6 +54,7 @@ const FormComponent: React.FC = () => {
             value={formState.valentineName}
             onChange={handleChange}
             aria-describedby="validationServerValentineNameFeedback"
+            autoComplete="off" // disable autocomplete
           />
           <div
             id="validationServerValentineNameFeedback"
