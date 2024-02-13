@@ -30,6 +30,7 @@ const FormComponent: React.FC = () => {
             value={formState.yourName}
             onChange={handleChange}
             autoComplete="off" // disable autocomplete
+            maxLength={15} // max length of 15 characters
           />
           <div
             id="validationServerYourNameFeedback"
@@ -55,6 +56,7 @@ const FormComponent: React.FC = () => {
             onChange={handleChange}
             aria-describedby="validationServerValentineNameFeedback"
             autoComplete="off" // disable autocomplete
+            maxLength={15} // max length of 15 characters
           />
           <div
             id="validationServerValentineNameFeedback"
