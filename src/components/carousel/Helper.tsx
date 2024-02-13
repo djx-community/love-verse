@@ -26,11 +26,24 @@ export interface StoryCardThemeInterface {
     | "Blush"
     | "Ember"
     | "Noir"
-    | "Romance"
+    | "Love"
     | "Serenity";
   mix: string[];
   url: string;
-  font: "" | "" | "";
+  font:
+    | "Calibri"
+    | "Cursive"
+    | "Times New Roman"
+    | "Arial"
+    | "Comic Sans MS"
+    | "Impact"
+    | "Georgia"
+    | "Lucida Console"
+    | "Tahoma"
+    | "Verdana"
+    | "Courier New"
+    | "Palatino Linotype"
+    | "";
   fontColor: string;
 }
 
@@ -40,62 +53,68 @@ export const storyCardThemes: StoryCardThemeInterface[] = [
     theme: "Passion",
     mix: ["255, 69, 0", "1,1,1"], //red,black
     url: blackRed,
-    font: "",
+    font: "Courier New",
     fontColor: "",
   },
   {
     theme: "Midnight",
     mix: ["1,1,1", "4, 90, 99", "255, 69, 0"], //black,blue,red
     url: blueBlack,
-    font: "",
+    font: "Tahoma",
     fontColor: "",
   },
   {
     theme: "Crimson",
     mix: ["184, 6, 8"], //red
     url: darkRed,
-    font: "",
+    font: "Comic Sans MS",
     fontColor: "",
   },
   {
     theme: "Blush",
     mix: ["150, 16, 5"], //red
     url: lightRed,
-    font: "",
+    font: "Verdana",
     fontColor: "",
   },
   {
     theme: "Ember",
     mix: ["61, 60, 59", "252, 113, 0"], //grey,orange
     url: orangeBlack,
-    font: "",
+    font: "Courier New",
     fontColor: "",
   },
   {
-    theme: "Romance",
+    theme: "Love",
     mix: ["252, 252, 252"], //red,black
     url: whiteRed,
-    font: "",
-    fontColor: "",
+    font: "Palatino Linotype",
+    fontColor: "#db4740",
   },
   {
     theme: "Noir",
     mix: ["64, 62, 62", "1,1,1"], //red,black
     url: lightBlack,
-    font: "",
+    font: "Impact",
     fontColor: "",
   },
   {
     theme: "Serenity",
     mix: ["135, 235, 255", "247, 171, 255"], //red,black
     url: skyBlue,
-    font: "",
-    fontColor: "",
+    font: "Cursive",
+    fontColor: "#db4740",
   },
 ];
 
 // Custom hook to manage carousel state
-export const useCarousel = ({ poemName, poem }: { poemName: string, poem: string }) => {
+export const useCarousel = ({
+  poemName,
+  poem,
+}: {
+  poemName: string;
+  poem: string;
+}) => {
   const [goToSlide, setGoToSlide] = React.useState<number>(0);
 
   // Function to generate slides based on story card themes

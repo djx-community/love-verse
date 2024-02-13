@@ -21,7 +21,7 @@ const PagePreview: React.FC = () => {
       // Call the generatePoem function from Services to fetch the poem
       if(yourName.toString().length > 15 || valentineName.toString().length > 15) {
         alert('Name should be less than 15 characters');
-        navigate("/", { replace: true });
+        return navigate("/", { replace: true });
       }
       Services.generatePoem({ valentineName, yourName })
         .then((response) => {
