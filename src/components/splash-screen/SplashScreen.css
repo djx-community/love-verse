@@ -1,0 +1,40 @@
+/* Define styles for the splash screen */
+.splash-screen {
+    position: fixed; /* Fix the position */
+    width: 100%; /* Full width */
+    height: 100vh; /* Full viewport height */
+    background: #fff; /* White background */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    z-index: 1200; /* Set a high z-index to ensure it's on top */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    flex-direction: column; /* Arrange items in a column */
+}
+
+/* Hide the scrollbar */
+.splash-screen::-webkit-scrollbar {
+    display: none;
+}
+
+/* Define styles for the loading caption */
+.loading-caption {
+    color: rgba(128, 128, 128, 0.7); /* Light gray color with some transparency */
+    font-size: 1.1rem; /* Font size */
+}
+
+/* Define styles for the loading quill icon */
+.loading-quill-icon {
+    animation: quill-writing 2s ease-in-out infinite alternate; /* Apply quill-writing animation */
+    transition: 01.5s all; /* Apply transition */
+}
+
+/* Define keyframes for the quill-writing animation */
+@keyframes quill-writing {
+    from, to {
+        transform: translateX(10px) scale(1); /* Initial and mid-animation states */
+    }
+    100% {
+        transform: translateX(50px) scale(1.1); /* Final animation state */
+    }
+}

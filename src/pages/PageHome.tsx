@@ -10,8 +10,10 @@ const PageHome: React.FC = () => {
   return (
     <div className="row vh-100">
       {/* Form container */}
-      <div className="col-md-6 pb-5 order-2 order-md-0 d-flex align-items-md-start 
-      justify-content-center flex-column form-container">
+      <div
+        className="col-md-6 pb-5 order-2 order-md-0 d-flex align-items-md-start 
+      justify-content-center flex-column form-container"
+      >
         {/* Title */}
         <h1 className="text-left text-md-start home-title">
           <span>
@@ -34,15 +36,15 @@ const PageHome: React.FC = () => {
       </div>
       {/* Logo container */}
       <div
-        className="col-md-6 logo-container"
+        className="col-md-6 logo-container justify-content-md-center justify-content-end"
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
         }}
       >
-        <img className="home-logo" src={Logo} alt="Main logo" /> {/* Main logo */}
+        <img className="home-logo" src={Logo} alt="Main logo" />{" "}
+        {/* Main logo */}
         <h1>Craft bespoke love poem</h1> {/* Heading */}
       </div>
     </div>
