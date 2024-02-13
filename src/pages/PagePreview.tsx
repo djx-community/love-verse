@@ -29,6 +29,8 @@ const PagePreview: React.FC = () => {
         .catch((error) => {
           console.error(error); // Log any errors that occur during the fetch request
         });
+      // Set the poem state with a sample poem
+      // setPoem("I love you more than words can express. You mean everything to me. I hope you have a wonderful day.");
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [yourName, valentineName]); // Dependency array for the useEffect hook
