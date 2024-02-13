@@ -19,6 +19,9 @@ const PagePreview: React.FC = () => {
     if (!yourName || !valentineName) {
       // Redirect the user to a different route if required parameters are missing
       navigate("/404", { replace: true });
+    } else if(yourName.toString().length > 15 || valentineName.toString().length > 15) {
+      alert('Name should be less than 15 characters');
+      return navigate("/", { replace: true });
     } else {
       // Display splash screen while poem is being generated
       if (!splashScreen.open) {
@@ -36,6 +39,8 @@ const PagePreview: React.FC = () => {
         .catch((error) => {
           console.error(error); // Log any errors that occur during the fetch request
         });
+      // Set the poem state with a sample poem
+      // setPoem("I love you more than words can express. You mean everything to me. I hope you have a wonderful day.");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [yourName, valentineName]); // Dependency array for the useEffect hook
@@ -50,8 +55,7 @@ const PagePreview: React.FC = () => {
   // Rendering the component
   return (
     <div className="row d-flex h-100 align-items-center justify-content-center">
-      <CarouselComponent poem={poem} />{" "}
-      {/* Render the CarouselComponent with the generated poem */}
+        <CarouselComponent poemName={yourName + ' & ' + valentineName} poem={poem} /> {/* Render the CarouselComponent with the generated poem */}
     </div>
   );
 };

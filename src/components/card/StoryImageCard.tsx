@@ -7,9 +7,10 @@ import { StoryCardThemeInterface } from "../carousel/Helper"; // Importing inter
 
 const StoryImageCard: React.FC<{
   theme: StoryCardThemeInterface; // Props interface: Theme for the story card
+  poemName: string; // Props interface: Name of the poem
   poem: string; // Props interface: Poem content for the story card
   active: boolean; // Props interface: Indicates if the card is active
-}> = ({ theme, poem, active }) => {
+}> = ({ theme, poemName, poem, active }) => {
   const containerRef = React.useRef(null); // Reference to the container element
 
   // Function to handle the download action
@@ -57,7 +58,7 @@ const StoryImageCard: React.FC<{
         }}
       >
         {/* Title */}
-        <h1 style={{ zIndex: 2 }}>Me&You</h1>
+        <h1 style={{ zIndex: 2 }}>{poemName}</h1>
         {/* Poem content */}
         <div
           style={{ zIndex: 2 }}
