@@ -95,7 +95,7 @@ export const storyCardThemes: StoryCardThemeInterface[] = [
 ];
 
 // Custom hook to manage carousel state
-export const useCarousel = ({ poem }: { poem: string }) => {
+export const useCarousel = ({ poemName, poem }: { poemName: string, poem: string }) => {
   const [goToSlide, setGoToSlide] = React.useState<number>(0);
 
   // Function to generate slides based on story card themes
@@ -106,6 +106,7 @@ export const useCarousel = ({ poem }: { poem: string }) => {
         // Render a StoryImageCard component for each slide
         content: (
           <StoryImageCard
+            poemName={poemName}
             theme={theme}
             poem={poem}
             active={index === goToSlide} // Determine if the card is active

@@ -5,9 +5,9 @@ import { storyCardThemes, useCarousel } from "./Helper"; // Importing helper fun
 import "./Carousel.css"; // Importing CSS file for styling
 
 // CarouselComponent functional component declaration
-const CarouselComponent: React.FC<{ poem: string }> = ({ poem }) => {
+const CarouselComponent: React.FC<{ poemName:string, poem: string }> = ({ poemName, poem }) => {
   // Destructuring values from the custom hook useCarousel
-  const { getSlides, goToSlide, setGoToSlide } = useCarousel({ poem });
+  const { getSlides, goToSlide, setGoToSlide } = useCarousel({ poemName, poem });
 
   // Rendering the component
   return (
