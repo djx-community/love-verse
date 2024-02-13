@@ -19,6 +19,10 @@ const PagePreview: React.FC = () => {
       navigate("/404", { replace: true });
     } else {
       // Call the generatePoem function from Services to fetch the poem
+      if(yourName.toString().length > 15 || valentineName.toString().length > 15) {
+        alert('Name should be less than 15 characters');
+        navigate("/", { replace: true });
+      }
       Services.generatePoem({ valentineName, yourName })
         .then((response) => {
           if (response.status === 200) {
