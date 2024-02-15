@@ -1,6 +1,7 @@
 import React from "react"; // Import React library
 import QuillPenIcon from "../../assets/quill-pen.png"; // Import QuillPenIcon image
 import { useForm } from "./Helper"; // Import custom useForm hook
+import "./FormComponent.css";
 
 const FormComponent: React.FC = () => {
   // Define FormComponent functional component

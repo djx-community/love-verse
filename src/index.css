@@ -12,9 +12,3 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-/* This style removes the border color and adds a red box shadow when the form control is focused */
-.form-control:focus {
-  border-color: transparent !important;
-  box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25) !important;
-}
