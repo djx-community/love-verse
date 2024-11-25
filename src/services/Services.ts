@@ -3,7 +3,7 @@ import axios from "axios";
 import { GeneratePoemRequestInterface } from "./Helper";
 
 const instance = axios.create({
-    baseURL: "https://love-verse.latenightcoders.site",
+    baseURL: "https://love-verse.midlajc.dev/",
 });
 
 export const Services = {
